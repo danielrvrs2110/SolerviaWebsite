@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Bricolage_Grotesque, Source_Sans_3 } from "next/font/google";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -15,6 +16,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Solervia | Software para PyMEs", description: siteConfig.description, type: "website", locale: "es_MX", siteName: "Solervia" },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return <html lang="es" className={`${displayFont.variable} ${bodyFont.variable}`}><body><a className="skip-link" href="#main-content">Saltar al contenido</a><SiteHeader /><main id="main-content">{children}</main><SiteFooter /></body></html>;
 }
