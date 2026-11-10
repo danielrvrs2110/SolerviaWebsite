@@ -16,13 +16,13 @@ export function SiteHeader() {
         <Link className="wordmark" href="/" onClick={() => setOpen(false)}>SOLERVIA<span aria-hidden="true">.</span></Link>
         <nav className="desktop-nav" aria-label="Navegación principal">
           {siteConfig.navigation.map((item) => <Link className={pathname.startsWith(item.href) ? "active" : undefined} href={item.href} key={item.href}>{item.label}</Link>)}
-          <Link className="nav-cta" href="/quote">Cotizar</Link>
+          <Link className="nav-cta" href="/quote">Preparar consulta</Link>
         </nav>
         <button className="menu-button" type="button" aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((current) => !current)}><Menu className="menu-icon" /></button>
       </div>
-      <nav id="mobile-navigation" className={`mobile-nav ${open ? "is-open" : ""}`} aria-label="Navegación móvil">
+      <nav id="mobile-navigation" className={`mobile-nav ${open ? "is-open" : ""}`} aria-label="Navegación móvil" inert={!open}>
         {siteConfig.navigation.map((item) => <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
-        <Link href="/quote" onClick={() => setOpen(false)}>Cotizar un proyecto</Link>
+        <Link href="/quote" onClick={() => setOpen(false)}>Preparar consulta</Link>
       </nav>
     </header>
   );

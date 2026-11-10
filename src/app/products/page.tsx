@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageIntro } from "@/components/marketing/page-intro";
-import { ArrowUpRight } from "@/components/ui/icons";
+import { ProductCard } from "@/components/marketing/product-card";
 import { products } from "@/content/products";
 
-export const metadata: Metadata = { title: "Products", description: "Productos de software de Solervia para resolver problemas repetibles de PyMEs." };
+export const metadata: Metadata = { title: "Products", description: "Conoce PedidoFlow y Solervia Sales Agent, y el estado actual de cada proyecto." };
 
 export default function ProductsPage() {
-  return <><PageIntro eyebrow="Products" title="Software listo para resolver problemas concretos." description="Esta línea reunirá productos propios de Solervia que una empresa pueda empezar a usar sin desarrollar un sistema desde cero." /><section className="section"><div className="container products-layout"><div className="catalog-note"><p className="overline">Estado actual</p><h2>Catálogo en preparación</h2><p>Todavía no publicamos productos sin información real. Dejamos lista la estructura para incorporar el primero sin rediseñar el sitio.</p></div><div className="dev-template"><div className="dev-badge">PLACEHOLDER DE DESARROLLO</div><h3>{products[0].name}</h3><p>{products[0].description}</p><Link href={`/products/${products[0].slug}`}>Ver plantilla de producto <ArrowUpRight /></Link></div></div></section></>;
+  return <>
+    <PageIntro eyebrow="Products" title="Productos propios, con su estado a la vista." description="Estamos desarrollando herramientas para dos procesos concretos: la operación de pedidos B2B y el trabajo comercial. Aquí distinguimos lo que ya funciona de lo que sigue en desarrollo." />
+    <section className="section" aria-labelledby="catalog-heading"><div className="container"><div className="catalog-heading"><p className="eyebrow">Proyectos actuales</p><h2 id="catalog-heading">Conoce el problema, el avance y sus límites.</h2></div><div className="product-list">{products.map((product, index) => <ProductCard key={product.slug} product={product} index={index + 1} />)}</div></div></section>
+  </>;
 }

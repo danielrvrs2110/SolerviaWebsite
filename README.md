@@ -28,11 +28,11 @@ npm run build
 ## Routes
 
 - `/` — Home
-- `/products` — product catalog state
-- `/products/[slug]` — reusable product detail template
+- `/products` — PedidoFlow and Solervia Sales Agent with explicit development status
+- `/products/[slug]` — product details, implemented scope, and pending work
 - `/custom` — custom software service
 - `/about` — company purpose and working principles
-- `/quote` — validated quote form frontend
+- `/quote` — local consultation form demo; no submission or storage
 - `/privacy` — transparent legal placeholder
 
 ## Structure
@@ -46,13 +46,15 @@ npm run build
 
 ## Backend pending
 
-`submitQuote()` currently validates and simulates the interface only. It does
-not transmit or persist data. A later phase should replace the development
-adapter with a server-side endpoint, spam protection, rate limits, secure input
-validation, storage or CRM integration, and transactional email if required.
+`submitQuote()` currently prepares the frontend state only. The form does not
+transmit or persist data. There is no public contact email yet. A later phase
+needs a confirmed receiving channel, server-side validation, spam protection,
+rate limits, and a privacy notice before activating submission. The editorial
+source and publication limits are recorded in `docs/INTEGRACION_PROYECTOS.md`.
 
-## Deployment pending
+## Deployment
 
-Before public deployment, confirm the production domain, contact details, real
-product content, privacy notice, form backend, analytics decision, and hosting
-environment. Then update `src/config/site.ts` with the confirmed canonical URL.
+The canonical production URL is `https://solervia-website.vercel.app` on Vercel.
+The website is informational. A public contact channel, privacy notice, and
+server-side form processing remain prerequisites for receiving requests. The
+product pages describe current project status, not commercial availability.
